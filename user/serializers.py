@@ -4,8 +4,6 @@ from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from rest_auth.registration.serializers import RegisterSerializer
 
-from .models import CustomUser
-
 User = get_user_model()
 
 JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER

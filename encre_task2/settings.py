@@ -48,12 +48,12 @@ INSTALLED_APPS = [
     'rest_auth.registration',
 
     'game',
-    'member',
+    'user',
 ]
 
-ACCOUNT_ADAPTER = 'member.adapter.CustomAccountAdapter'
+ACCOUNT_ADAPTER = 'user.adapter.CustomAccountAdapter'
 REST_AUTH_REGISTER_SERIALIZERS = {
-    'REGISTER_SERIALIZER': 'member.serializers.UserCreateSerializer',
+    'REGISTER_SERIALIZER': 'user.serializers.UserCreateSerializer',
 }
 
 
@@ -61,7 +61,7 @@ SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -156,7 +156,7 @@ JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
     'JWT_EXPIRATION_DELTA': timedelta(days=7),
     'JWT_REFRESH_EXPIRATION_DELTA': timedelta(days=28),
-    # 'JWT_PAYLOAD_HANDLER': 'member.utils.jwt_payload_handler',
+    # 'JWT_PAYLOAD_HANDLER': 'user.utils.jwt_payload_handler',
 }
 
 
@@ -168,4 +168,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/images/' # 업로드 할 경로
 MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 
-AUTH_USER_MODEL = 'member.CustomUser'
+AUTH_USER_MODEL = 'user.CustomUser'
