@@ -76,12 +76,3 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = [IsCommentAuthorOrReadOnly]
-    #
-    # def destroy(self, request, *args, **kwargs):
-    #     print(request)
-    #     comment = self.get_object(request)
-    #     comment.delete()
-    #     comment_count = Comment.objects.filter(character=self).exclude(deleted=True).count()
-    #     character = Character.objects.get(username=request.user)
-    #     character.count_comment = comment_count
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
